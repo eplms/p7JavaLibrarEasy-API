@@ -1,4 +1,4 @@
-package com.emmanuel.plumas.p7JavaLibrarEasy.controller;
+package com.emmanuel.plumas.p7JavaLibrarEasyApi.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.emmanuel.plumas.p7JavaLibrarEasy.model.BookEntity;
-import com.emmanuel.plumas.p7JavaLibrarEasy.service.BookService;
+import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.BookEntity;
+import com.emmanuel.plumas.p7JavaLibrarEasyApi.service.BookService;
 
 @RestController
 public class BookController {

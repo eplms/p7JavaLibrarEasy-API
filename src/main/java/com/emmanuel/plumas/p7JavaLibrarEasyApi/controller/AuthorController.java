@@ -1,4 +1,4 @@
-package com.emmanuel.plumas.p7JavaLibrarEasy.controller;
+package com.emmanuel.plumas.p7JavaLibrarEasyApi.controller;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.emmanuel.plumas.p7JavaLibrarEasy.model.AuthorEntity;
-import com.emmanuel.plumas.p7JavaLibrarEasy.service.AuthorService;
+import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.AuthorEntity;
+import com.emmanuel.plumas.p7JavaLibrarEasyApi.service.AuthorService;
 
 @RestController	
 public class AuthorController {

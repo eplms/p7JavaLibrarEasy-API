@@ -1,4 +1,4 @@
-package com.emmanuel.plumas.p7JavaLibrarEasy.model;
+package com.emmanuel.plumas.p7JavaLibrarEasyApi.model;
 
 import java.io.Serializable;
 
