@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,18 +22,24 @@ public class BookEntity implements Serializable{
 		private String editor;
 		private String bookType;
 		
+		@ManyToOne 
+		@JoinColumn(name="author_id")
+		private AuthorEntity authorEntity;
 		
 		
-		public BookEntity(Long bookId, String bookTitle, String editor, String bookType) {
+		
+		
+		
+		public BookEntity(Long bookId, String bookTitle, String editor, String bookType, AuthorEntity authorEntity) {
 			super();
 			this.bookId = bookId;
 			this.bookTitle = bookTitle;
 			this.editor = editor;
 			this.bookType = bookType;
+			this.authorEntity = authorEntity;
 		}
-		
-		
-		
+
+
 		public BookEntity() {
 			super();
 		}
@@ -76,8 +84,20 @@ public class BookEntity implements Serializable{
 		}
 
 
+		public AuthorEntity getAuthorEntity() {
+			return authorEntity;
+		}
+
+		public void setAuthorEntity(AuthorEntity authorEntity) {
+			this.authorEntity = authorEntity;
+		}
+
+
 		@Override
 		public String toString() {
-			return "BookEntity [bookId=" + bookId + ", bookTitle=" + bookTitle + ", editor=" + editor + ", bookType=" + bookType + "]";
+			return "BookEntity [bookId=" + bookId + ", bookTitle=" + bookTitle + ", editor=" + editor + ", bookType="
+					+ bookType + ", authorEntity=" + authorEntity + "]";
 		}
+		
+		
 }
