@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name="libraryUser")
 public class UserEntity implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -16,21 +16,21 @@ public class UserEntity implements Serializable{
 	@Id
 	@GeneratedValue
 	private Long userId;
-	private String lastName;
-	private String firstName;
-	private String phoneNumber;
-	private String email;
-	private String password;
+	private String userLastName;
+	private String userFirstName;
+	private String userPhoneNumber;
+	private String userEmail;
+	private String userPassword;
 	
-	public UserEntity(Long userId, String lastName, String firstName, String phoneNumber, String email,
-			String password) {
+	public UserEntity(Long userId, String userLastName, String userFirstName, String userPhoneNumber, String userEmail,
+			String userPassword) {
 		super();
 		this.userId = userId;
-		this.lastName = lastName;
-		this.firstName = firstName;
-		this.phoneNumber = phoneNumber;
-		this.email = email;
-		this.password = password;
+		this.userLastName = userLastName;
+		this.userFirstName = userFirstName;
+		this.userPhoneNumber = userPhoneNumber;
+		this.userEmail = userEmail;
+		this.userPassword = userPassword;
 	}
 
 	public UserEntity() {
@@ -45,50 +45,52 @@ public class UserEntity implements Serializable{
 		this.userId = userId;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getUserLastName() {
+		return userLastName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setUserLastName(String userLastName) {
+		this.userLastName = userLastName;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getUserFirstName() {
+		return userFirstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setUserFirstName(String userFirstName) {
+		this.userFirstName = userFirstName;
 	}
 
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getUserPhoneNumber() {
+		return userPhoneNumber;
 	}
 
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setUserPhoneNumber(String userPhoneNumber) {
+		this.userPhoneNumber = userPhoneNumber;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUserEmail() {
+		return userEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getUserPassword() {
+		return userPassword;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 
 	@Override
 	public String toString() {
-		return "UserEntity [userId=" + userId + ", lastName=" + lastName + ", firstName=" + firstName + ", phoneNumber="
-				+ phoneNumber + ", email=" + email + ", password=" + password + "]";
+		return "UserEntity [userId=" + userId + ", userLastName=" + userLastName + ", userFirstName=" + userFirstName
+				+ ", userPhoneNumber=" + userPhoneNumber + ", userEmail=" + userEmail + ", userPassword=" + userPassword
+				+ "]";
 	}
+	
 	
 }
