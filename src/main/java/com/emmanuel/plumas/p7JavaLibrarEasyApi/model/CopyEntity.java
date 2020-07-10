@@ -22,4 +22,39 @@ public class CopyEntity implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="book_id")
 	private BookEntity bookEntity;
+
+	public CopyEntity(Long copyId, BookEntity bookEntity) {
+		super();
+		this.copyId = copyId;
+		this.bookEntity = bookEntity;
+	}
+
+	public CopyEntity() {
+		super();
+	}
+
+	public Long getCopyId() {
+		return copyId;
+	}
+
+	public void setCopyId(Long copyId) {
+		this.copyId = copyId;
+	}
+
+	public BookEntity getBookEntity() {
+		return bookEntity;
+	}
+
+	public void setBookEntity(BookEntity bookEntity) {
+		this.bookEntity = bookEntity;
+	}
+
+	@Override
+	public String toString() {
+		return "CopyEntity [copyId=" + copyId + ", bookEntity=" + bookEntity + "]";
+	}
+	
+	
+	
+	
 }
