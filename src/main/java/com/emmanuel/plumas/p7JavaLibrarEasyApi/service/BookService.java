@@ -27,5 +27,10 @@ public class BookService {
 		List<BookEntity> bookEntities=(List<BookEntity>) bookRepository.findAll();
 		return bookEntities;
 	}
+
+	public Optional<BookEntity> getsBookByTitle(String bookTitle) {
+		Optional<BookEntity> bookEntity =bookRepository.findByBookTitle(bookTitle);
+		return bookEntity;
+	}
 	
 }

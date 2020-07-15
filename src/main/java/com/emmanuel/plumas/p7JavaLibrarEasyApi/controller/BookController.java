@@ -19,11 +19,19 @@ public class BookController {
 	@Qualifier("BookService")
 	private BookService bookService;
 	
+	/*
 	@GetMapping(value="book/{bookId}")
 	public Optional<BookEntity> getBooksById(@PathVariable Long bookId) {
 		Optional<BookEntity> bookEntity= bookService.getBookById(bookId) ;
 		return bookEntity;
 	}
+	*/
+	@GetMapping(value="book/{bookTitle}")
+	public Optional<BookEntity> getBooksByTitle(@PathVariable String bookTitle){
+		Optional<BookEntity> bookEntity=bookService.getsBookByTitle(bookTitle);
+		return bookEntity;
+	}
+	
 	
 	@GetMapping(value="books")
 	public List<BookEntity> getAllBooks(){
