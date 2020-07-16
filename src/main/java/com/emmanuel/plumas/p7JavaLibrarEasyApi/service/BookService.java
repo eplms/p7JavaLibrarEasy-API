@@ -28,8 +28,8 @@ public class BookService {
 		return bookEntities;
 	}
 
-	public Optional<BookEntity> getsBookByTitle(String bookTitle) {
-		Optional<BookEntity> bookEntity =bookRepository.findByBookTitle(bookTitle);
+	public List<BookEntity> getsBookByTitle(String bookTitle) {
+		List<BookEntity> bookEntity =bookRepository.findByBookTitle(bookTitle);
 		return bookEntity;
 	}
 	

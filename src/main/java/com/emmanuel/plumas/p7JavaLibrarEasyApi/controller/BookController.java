@@ -1,8 +1,6 @@
 package com.emmanuel.plumas.p7JavaLibrarEasyApi.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,8 +25,8 @@ public class BookController {
 	}
 	*/
 	@GetMapping(value="book/{bookTitle}")
-	public Optional<BookEntity> getBooksByTitle(@PathVariable String bookTitle){
-		Optional<BookEntity> bookEntity=bookService.getsBookByTitle(bookTitle);
+	public List<BookEntity> getBooksByTitle(@PathVariable String bookTitle){
+		List<BookEntity> bookEntity=bookService.getsBookByTitle(bookTitle);
 		return bookEntity;
 	}
 	
