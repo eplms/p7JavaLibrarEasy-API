@@ -1,6 +1,8 @@
 package com.emmanuel.plumas.p7JavaLibrarEasyApi.service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,14 @@ public class BookService {
 	@Autowired
 	@Qualifier("IBookRepository")
 	private IBookRepository bookRepository;
+
+	@Autowired
+	@Qualifier("CopyService")
+	private CopyService copyService;
+	
+	@Autowired
+	@Qualifier("BorrowService")
+	private BorrowService borrowService;
 	
 	public Optional<BookEntity> getBookById(Long bookId) {
 		Optional<BookEntity> bookEntity=bookRepository.findById(bookId);
@@ -28,9 +38,17 @@ public class BookService {
 		return bookEntities;
 	}
 
-	public List<BookEntity> getsBookByTitle(String bookTitle) {
-		List<BookEntity> bookEntity =bookRepository.findByBookTitle(bookTitle);
-		return bookEntity;
+	public HashMap<BookEntity, Integer> getsBookByTitleAvalaibale(String bookTitle) {
+		/* Recherche de la liste des bookEntity pour un bookTitle */
+		List<BookEntity> bookEntities =bookRepository.findByBookTitle(bookTitle);
+		
+		Map<BookEntity,Integer> booksAvailable = new HashMap<>();
+ 		
+		for(BookEntity bookEntity: bookEntities) {
+			booksAvailable.put(bookEntity, copyService.getCopyNumberAvailableByBookEntity(bookEntity));
+		}
+		
+		return (HashMap<BookEntity, Integer>) booksAvailable;
 	}
 	
 }
