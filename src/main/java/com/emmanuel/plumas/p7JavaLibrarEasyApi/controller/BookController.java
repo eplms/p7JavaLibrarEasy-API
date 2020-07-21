@@ -1,9 +1,7 @@
 package com.emmanuel.plumas.p7JavaLibrarEasyApi.controller;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.BookEntity;
+import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.BookEntityAvailable;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.service.BookService;
 
 @RestController
@@ -28,8 +27,8 @@ public class BookController {
 	}
 	*/
 	@GetMapping(value="book/{bookTitle}")
-	public Map<Integer, BookEntity> getBooksByTitle(@PathVariable String bookTitle){
-		HashMap<Integer, BookEntity> booksAvailable=bookService.getsBookByTitleAvalaibale(bookTitle);
+	public List<BookEntityAvailable> getBooksByTitle(@PathVariable String bookTitle){
+		ArrayList<BookEntityAvailable> booksAvailable=(ArrayList<BookEntityAvailable>) bookService.getsBookByTitleAvalaibale(bookTitle);
 		return booksAvailable;
 	}
 	
