@@ -28,8 +28,8 @@ public class BookController {
 	}
 	*/
 	@GetMapping(value="book/{bookTitle}")
-	public Map<BookEntity,Integer> getBooksByTitle(@PathVariable String bookTitle){
-		HashMap<BookEntity, Integer> booksAvailable=bookService.getsBookByTitleAvalaibale(bookTitle);
+	public Map<Integer, BookEntity> getBooksByTitle(@PathVariable String bookTitle){
+		HashMap<Integer, BookEntity> booksAvailable=bookService.getsBookByTitleAvalaibale(bookTitle);
 		return booksAvailable;
 	}
 	

@@ -38,17 +38,17 @@ public class BookService {
 		return bookEntities;
 	}
 
-	public HashMap<BookEntity, Integer> getsBookByTitleAvalaibale(String bookTitle) {
+	public HashMap<Integer, BookEntity> getsBookByTitleAvalaibale(String bookTitle) {
 		/* Recherche de la liste des bookEntity pour un bookTitle */
 		List<BookEntity> bookEntities =bookRepository.findByBookTitle(bookTitle);
 		
-		Map<BookEntity,Integer> booksAvailable = new HashMap<>();
+		Map<Integer, BookEntity> booksAvailable = new HashMap<>();
  		
 		for(BookEntity bookEntity: bookEntities) {
-			booksAvailable.put(bookEntity, copyService.getCopyNumberAvailableByBookEntity(bookEntity));
+			booksAvailable.put(copyService.getCopyNumberAvailableByBookEntity(bookEntity), bookEntity);
 		}
 		
-		return (HashMap<BookEntity, Integer>) booksAvailable;
+		return (HashMap<Integer, BookEntity>) booksAvailable;
 	}
 	
 }

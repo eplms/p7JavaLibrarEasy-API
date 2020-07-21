@@ -19,7 +19,7 @@ public class BorrowEntity implements Serializable{
 
 	@Id
 	@GeneratedValue
-	private String borrowId;
+	private Long borrowId;
 	private Date startDate;
 	private Date endDate;
 	
@@ -31,7 +31,7 @@ public class BorrowEntity implements Serializable{
 	@JoinColumn(name="user_id")
 	private UserEntity userEntity;
 
-	public BorrowEntity(String borrowId, Date startDate, Date endDate, CopyEntity copyEntity, UserEntity userEntity) {
+	public BorrowEntity(Long borrowId, Date startDate, Date endDate, CopyEntity copyEntity, UserEntity userEntity) {
 		super();
 		this.borrowId = borrowId;
 		this.startDate = startDate;
@@ -44,11 +44,11 @@ public class BorrowEntity implements Serializable{
 		super();
 	}
 
-	public String getBorrowId() {
+	public Long getBorrowId() {
 		return borrowId;
 	}
 
-	public void setBorrowId(String borrowId) {
+	public void setBorrowId(Long borrowId) {
 		this.borrowId = borrowId;
 	}
 
