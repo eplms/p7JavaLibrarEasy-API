@@ -50,12 +50,13 @@ public class BookService {
 		List<BookEntityAvailable> bookEntitiesAvailable= new ArrayList<BookEntityAvailable>();
 		for(int i=0; i< (bookEntities.size());i++) {
 			BookEntityAvailable bookEntityAvailable=new BookEntityAvailable();
-			bookEntityAvailable.setBookId(bookEntities.get(i).getBookId()); 
-			bookEntityAvailable.setBookTitle(bookEntities.get(i).getBookTitle());
-			bookEntityAvailable.setEditor(bookEntities.get(i).getEditor());
-			bookEntityAvailable.setBookType(bookEntities.get(i).getBookType());
-			bookEntityAvailable.setAuthorEntity(bookEntities.get(i).getAuthorEntity());
-			bookEntityAvailable.setAvailableCopyNumber(copyService.getCopyNumberAvailableByBookEntity(bookEntities.get(i)));
+			BookEntity bookEntity= bookEntities.get(i);
+			bookEntityAvailable.setBookId(bookEntity.getBookId()); 
+			bookEntityAvailable.setBookTitle(bookEntity.getBookTitle());
+			bookEntityAvailable.setEditor(bookEntity.getEditor());
+			bookEntityAvailable.setBookType(bookEntity.getBookType());
+			bookEntityAvailable.setAuthorEntity(bookEntity.getAuthorEntity());
+			bookEntityAvailable.setAvailableCopyNumber(copyService.getCopyNumberAvailableByBookEntity(bookEntity));
 			bookEntitiesAvailable.add(bookEntityAvailable);
 			}
 		return bookEntitiesAvailable;
