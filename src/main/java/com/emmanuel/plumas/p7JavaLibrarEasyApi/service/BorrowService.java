@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.BorrowEntity;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.CopyEntity;
+import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.UserEntity;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.repository.IBorrowRepository;
 
 @Service
@@ -19,8 +20,21 @@ public class BorrowService {
 	private IBorrowRepository borrowRepository;
 	
 	
+	@Autowired
+	@Qualifier("UserService")
+	private UserService userService;
+	
 	public List<BorrowEntity> getBorrowByCopyEntity(CopyEntity copyEntity) {
 		List<BorrowEntity> borrowEntities=borrowRepository.getBorrowByCopyEntity(copyEntity);
 		return borrowEntities;
 	}
+	
+	
+	public List<BorrowEntity> getBorrowByUserLastName(String userLastName){
+		UserEntity userEntity=userService.getUserByUserLastName(userLastName);
+		List<BorrowEntity> borrowEntities=borrowRepository.getBorrowByUserEntity(userEntity);
+		return borrowEntities;
+		
+	}
+	
 }

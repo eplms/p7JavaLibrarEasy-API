@@ -8,11 +8,13 @@ import org.springframework.stereotype.Repository;
 
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.BorrowEntity;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.CopyEntity;
+import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.UserEntity;
 
 @Repository
 @Qualifier("IBorrowRepository")
 public interface IBorrowRepository extends CrudRepository<BorrowEntity, Long>{
 
 	List<BorrowEntity> getBorrowByCopyEntity(CopyEntity copyEntity);
+	List<BorrowEntity> getBorrowByUserEntity(UserEntity userEntity);
 
 }
