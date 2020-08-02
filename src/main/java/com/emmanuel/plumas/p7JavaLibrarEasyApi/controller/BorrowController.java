@@ -20,7 +20,7 @@ public class BorrowController {
 	private BorrowService borrowService;
 	
 	@GetMapping(value="borrow/{userLastName}")
-	public List<BorrowEntity> getBorrowByUserName(Model model,@PathVariable String userLastName){
+	public List<BorrowEntity> getBorrowByUserName(@PathVariable String userLastName){
 		List<BorrowEntity> borrowEntities=borrowService.getBorrowByUserLastName(userLastName);
 		return borrowEntities;
 	}
