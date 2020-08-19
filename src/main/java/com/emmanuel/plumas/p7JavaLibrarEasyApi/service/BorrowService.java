@@ -1,7 +1,7 @@
 package com.emmanuel.plumas.p7JavaLibrarEasyApi.service;
 
+import java.util.Calendar;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -35,6 +35,18 @@ public class BorrowService {
 		List<BorrowEntity> borrowEntities=borrowRepository.getBorrowByUserEntity(userEntity);
 		return borrowEntities;
 		
+	}
+
+
+	public void extendBorrowEndDate(Long borrowId) {
+		BorrowEntity borrowEntity=borrowRepository.getBorrowByBorrowId(borrowId);
+		Calendar cal=Calendar.getInstance();
+		cal.setTime(borrowEntity.getEndDate());
+		cal.add(Calendar.MONTH, 1);
+		borrowEntity.setEndDate(cal.getTime());
+		borrowEntity.setIsExtended(true);
+		borrowRepository.save(borrowEntity);
+		/* return borrowEntity; */
 	}
 	
 }

@@ -16,5 +16,5 @@ public interface IBorrowRepository extends CrudRepository<BorrowEntity, Long>{
 
 	List<BorrowEntity> getBorrowByCopyEntity(CopyEntity copyEntity);
 	List<BorrowEntity> getBorrowByUserEntity(UserEntity userEntity);
-
+	BorrowEntity getBorrowByBorrowId(Long borrowId);
 }

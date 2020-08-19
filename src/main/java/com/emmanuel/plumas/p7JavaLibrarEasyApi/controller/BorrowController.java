@@ -24,4 +24,9 @@ public class BorrowController {
 		return borrowEntities;
 	}
 	
+	@GetMapping(value="borrow/extendBorrow/{borrowId}")
+	public void setExtendBorrow(@PathVariable Long borrowId) {
+		borrowService.extendBorrowEndDate(borrowId);
+	}
+	
 }

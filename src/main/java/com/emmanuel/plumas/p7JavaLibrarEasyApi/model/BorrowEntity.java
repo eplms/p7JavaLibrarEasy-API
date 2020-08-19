@@ -22,6 +22,7 @@ public class BorrowEntity implements Serializable{
 	private Long borrowId;
 	private Date startDate;
 	private Date endDate;
+	private Boolean isExtended;
 	
 	@ManyToOne
 	@JoinColumn(name="copy_id")
@@ -31,11 +32,13 @@ public class BorrowEntity implements Serializable{
 	@JoinColumn(name="user_id")
 	private UserEntity userEntity;
 
-	public BorrowEntity(Long borrowId, Date startDate, Date endDate, CopyEntity copyEntity, UserEntity userEntity) {
+	public BorrowEntity(Long borrowId, Date startDate, Date endDate, Boolean isExtended, CopyEntity copyEntity,
+			UserEntity userEntity) {
 		super();
 		this.borrowId = borrowId;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.isExtended = isExtended;
 		this.copyEntity = copyEntity;
 		this.userEntity = userEntity;
 	}
@@ -68,6 +71,14 @@ public class BorrowEntity implements Serializable{
 		this.endDate = endDate;
 	}
 
+	public Boolean getIsExtended() {
+		return isExtended;
+	}
+
+	public void setIsExtended(Boolean isExtended) {
+		this.isExtended = isExtended;
+	}
+
 	public CopyEntity getCopyEntity() {
 		return copyEntity;
 	}
@@ -86,9 +97,11 @@ public class BorrowEntity implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Borrow [borrowId=" + borrowId + ", startDate=" + startDate + ", endDate=" + endDate + ", copyEntity="
-				+ copyEntity + ", userEntity=" + userEntity + "]";
+		return "BorrowEntity [borrowId=" + borrowId + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", isExtended=" + isExtended + ", copyEntity=" + copyEntity + ", userEntity=" + userEntity + "]";
 	}
+
+	
 	
 	
 	
