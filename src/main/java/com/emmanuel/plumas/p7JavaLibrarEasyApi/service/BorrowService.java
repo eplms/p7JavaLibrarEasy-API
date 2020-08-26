@@ -1,6 +1,8 @@
 package com.emmanuel.plumas.p7JavaLibrarEasyApi.service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -48,5 +50,19 @@ public class BorrowService {
 		borrowRepository.save(borrowEntity);
 		/* return borrowEntity; */
 	}
+
+
+	public List<BorrowEntity> getOutOfTimeAndNotReturnedBorrow() {
+		List<BorrowEntity> notReturnedBorrowEntities=borrowRepository.getBorrowByIsReturned(false);
+		List<BorrowEntity> outOfTimeBorrowEntities=new ArrayList<BorrowEntity>();
+		Date date=new Date();
+		for(BorrowEntity borrowEntity: notReturnedBorrowEntities) {
+			if(borrowEntity.getEndDate().compareTo(date)<0) {
+				outOfTimeBorrowEntities.add(borrowEntity);
+			}
+		}
+		return outOfTimeBorrowEntities;
+	}
+	
 	
 }

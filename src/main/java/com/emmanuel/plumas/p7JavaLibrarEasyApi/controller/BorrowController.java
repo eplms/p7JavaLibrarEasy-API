@@ -29,4 +29,9 @@ public class BorrowController {
 		borrowService.extendBorrowEndDate(borrowId);
 	}
 	
+	@GetMapping(value="borrow/isNotReturned")
+	public List<BorrowEntity> getOutOfTimeAndNotReturnedBorrow(){
+		List<BorrowEntity> borrowEntities=borrowService.getOutOfTimeAndNotReturnedBorrow();
+		return borrowEntities;
+	}
 }
