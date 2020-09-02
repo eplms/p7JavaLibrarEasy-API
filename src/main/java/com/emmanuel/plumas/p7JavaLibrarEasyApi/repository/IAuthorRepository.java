@@ -10,4 +10,6 @@ import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.AuthorEntity;
 @Qualifier("IAuthorRepository")
 public interface IAuthorRepository extends CrudRepository<AuthorEntity, Long>{
 
+	void deleteAuthorByAuthorId (Long authorId);
+	AuthorEntity findByAuthorId(Long authorId);
 }

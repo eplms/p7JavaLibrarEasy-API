@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.AuthorEntity;
@@ -21,6 +23,21 @@ public class AuthorController {
 	public List<AuthorEntity> getAllAuthors() {
 		List<AuthorEntity> authorEntities=authorService.getAllBooks();
 		return authorEntities;
+	}
+	
+	@PostMapping(value="authors/create")
+	public void createAuthor(AuthorEntity authorEntity) {
+		authorService.createAuthor(authorEntity);
+	}
+	
+	@GetMapping(value="authors/delete/{authorId}")
+	public void deleteAuthorById(@PathVariable Long authorId) {
+		authorService.deleteAuthorByAuthorId(authorId);
+	}
+	
+	@PostMapping(value="authors/update")
+	public void updateAuthor(AuthorEntity authorEntity) {
+		authorEntity=authorService.updateAuthor(authorEntity);
 	}
 	
 }
