@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.BookEntity;
@@ -39,5 +40,19 @@ public class BookController {
 		return bookEntities;
 	}
 	
+	@PostMapping(value="book/create")
+	public void createBook(BookEntity bookEntity) {
+		bookService.createBook(bookEntity);
+	}
+	
+	@PostMapping(value="book/update")
+	public void upDateBook(BookEntity bookEntity) {
+		bookEntity=bookService.upDateBook(bookEntity);
+	}
+	
+	@GetMapping(value="book/delete/{bookId}")
+	public void deleteBookById(@PathVariable Long bookId) {
+		bookService.deleteBookById(bookId);
+	}
 	
 }

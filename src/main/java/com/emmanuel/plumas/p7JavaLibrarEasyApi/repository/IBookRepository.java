@@ -13,5 +13,9 @@ public interface IBookRepository extends CrudRepository<BookEntity,Long>{
 
 	List<BookEntity> findByBookTitle(String bookTitle);
 
+	BookEntity findByBookId(Long bookId);
+
+	void deleteByBookId(Long bookId);
+
 	
 }

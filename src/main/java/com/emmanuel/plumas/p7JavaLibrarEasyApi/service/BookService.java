@@ -1,9 +1,10 @@
 package com.emmanuel.plumas.p7JavaLibrarEasyApi.service;
 
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Optional;
 
+import javax.transaction.Transactional;
+
+import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.BookEntityAvailable;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.repository.IBookRepository;
 
 @Service
+@Transactional
 @Qualifier("BookService")
 public class BookService {
 
@@ -28,8 +30,8 @@ public class BookService {
 	@Qualifier("BorrowService")
 	private BorrowService borrowService;
 	
-	public Optional<BookEntity> getBookById(Long bookId) {
-		Optional<BookEntity> bookEntity=bookRepository.findById(bookId);
+	public BookEntity getBookById(Long bookId) {
+		BookEntity bookEntity=bookRepository.findByBookId(bookId);
 		return bookEntity;
 	}
 	
@@ -45,7 +47,6 @@ public class BookService {
 		return bookEntitiesAvailable;
 	}
 	
-	
 	private List<BookEntityAvailable> transformBookEntityToAvailable(List<BookEntity> bookEntities){
 		List<BookEntityAvailable> bookEntitiesAvailable= new ArrayList<BookEntityAvailable>();
 		for(int i=0; i< (bookEntities.size());i++) {
@@ -60,6 +61,26 @@ public class BookService {
 			bookEntitiesAvailable.add(bookEntityAvailable);
 			}
 		return bookEntitiesAvailable;
+	}
+
+	public void createBook(BookEntity bookEntity) {
+		bookRepository.save(bookEntity);
+		
+	}
+
+	public BookEntity upDateBook(BookEntity bookEntity) {
+		BookEntity book=getBookById(bookEntity.getBookId());
+		book.setBookTitle(bookEntity.getBookTitle());
+		book.setBookType(bookEntity.getBookType());
+		book.setEditor(bookEntity.getEditor());
+		book.setAuthorEntity(bookEntity.getAuthorEntity());
+		bookRepository.save(book);
+		return book;
+	}
+
+	public void deleteBookById(Long bookId) {
+		bookRepository.deleteByBookId(bookId);
+		
 	}
 	
 }
