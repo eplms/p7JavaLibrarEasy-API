@@ -15,5 +15,9 @@ public interface ICopyRepository extends CrudRepository<CopyEntity, Long>{
 
 	List<CopyEntity> findByBookEntity(BookEntity bookEntity);
 
+	CopyEntity findByCopyId(Long copyId);
+
+	void deleteByCopyId(Long copyId);
+
 
 }

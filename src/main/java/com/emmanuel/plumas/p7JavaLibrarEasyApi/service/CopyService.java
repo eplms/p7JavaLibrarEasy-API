@@ -3,6 +3,8 @@ package com.emmanuel.plumas.p7JavaLibrarEasyApi.service;
 import java.util.Date;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.CopyEntity;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.repository.ICopyRepository;
 
 @Service
+@Transactional
 @Qualifier("CopyService")
 public class CopyService {
 
@@ -41,4 +44,32 @@ public class CopyService {
 		return availableCopyNumber;
 	}
 	
+	
+	public List<CopyEntity> getAllCopyEntities(){
+		List<CopyEntity> copyEntities=(List<CopyEntity>) copyRepository.findAll();
+		return copyEntities;
+	}
+
+
+	public void createCopy(CopyEntity copyEntity) {
+		copyRepository.save(copyEntity);
+		
+	}
+
+	
+	public CopyEntity getCopyById(Long copyId) {
+		CopyEntity copyEntity=copyRepository.findByCopyId(copyId);
+		return copyEntity;
+	}
+
+	public CopyEntity upDateCopy(CopyEntity copyEntity) {
+		CopyEntity copy=getCopyById(copyEntity.getCopyId());
+		copy.setBookEntity(copyEntity.getBookEntity());
+		copyRepository.save(copy);
+		return copy;
+	}
+	
+	public void deleteCopyById(Long copyId) {
+		copyRepository.deleteByCopyId(copyId);
+	}
 }
