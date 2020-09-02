@@ -37,7 +37,7 @@ public class AuthorController {
 	
 	@PostMapping(value="authors/update")
 	public void updateAuthor(AuthorEntity authorEntity) {
-		authorEntity=authorService.updateAuthor(authorEntity);
+		authorEntity=authorService.upDateAuthor(authorEntity);
 	}
 	
 }

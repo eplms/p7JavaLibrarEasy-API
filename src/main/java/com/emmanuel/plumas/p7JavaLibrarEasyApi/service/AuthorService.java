@@ -41,7 +41,7 @@ public class AuthorService {
 		authorRepository.deleteAuthorByAuthorId(authorId);
 	}
 	
-	public AuthorEntity updateAuthor(AuthorEntity authorEntity) {
+	public AuthorEntity upDateAuthor(AuthorEntity authorEntity) {
 		AuthorEntity author=getById(authorEntity.getAuthorId());
 		author.setAuthorFirstName(authorEntity.getAuthorFirstName());
 		author.setAuthorLastName(authorEntity.getAuthorLastName());
