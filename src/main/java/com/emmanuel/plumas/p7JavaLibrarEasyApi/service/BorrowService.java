@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -14,6 +17,7 @@ import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.UserEntity;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.repository.IBorrowRepository;
 
 @Service
+@Transactional
 @Qualifier("BorrowService")
 public class BorrowService {
 
@@ -36,7 +40,6 @@ public class BorrowService {
 		UserEntity userEntity=userService.getUserByUserLastName(userLastName);
 		List<BorrowEntity> borrowEntities=borrowRepository.getBorrowByUserEntity(userEntity);
 		return borrowEntities;
-		
 	}
 
 
@@ -64,5 +67,28 @@ public class BorrowService {
 		return outOfTimeBorrowEntities;
 	}
 	
+	public List<BorrowEntity> getAllBorrows(){
+		List<BorrowEntity> borrowEntities=(List<BorrowEntity>) borrowRepository.findAll();
+		return borrowEntities;
+	}
 	
+	public void createBorrow(BorrowEntity borrowEntity) {
+		borrowRepository.save(borrowEntity);
+	}
+	
+	public BorrowEntity upDateBorrow(BorrowEntity borrowEntity) {
+		BorrowEntity borrow=borrowRepository.getBorrowByBorrowId(borrowEntity.getBorrowId());
+		borrow.setStartDate(borrowEntity.getStartDate());
+		borrow.setEndDate(borrowEntity.getEndDate());
+		borrow.setIsExtended(borrowEntity.getIsExtended());
+		borrow.setIsReturned(borrowEntity.getIsReturned());
+		borrow.setCopyEntity(borrowEntity.getCopyEntity());
+		borrow.setUserEntity(borrowEntity.getUserEntity());
+		borrowRepository.save(borrow);
+		return borrow;
+	}
+	
+	public void deleteBorrow(Long borrowId) {
+		borrowRepository.deleteByBorrowId(borrowId);
+	}
 }
