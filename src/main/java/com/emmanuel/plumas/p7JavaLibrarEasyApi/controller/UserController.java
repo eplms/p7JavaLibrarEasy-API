@@ -20,7 +20,7 @@ public class UserController {
 	@Qualifier("UserService")
 	private UserService userService;
 
-	@GetMapping(value="libraryUsers/{userLastName}")
+	@GetMapping(value="libraryUser/{userLastName}")
 	public UserEntity getUserByLastName (@PathVariable String userLastName) {
 		UserEntity userEntity=userService.getUserByUserLastName(userLastName);
 		return userEntity;

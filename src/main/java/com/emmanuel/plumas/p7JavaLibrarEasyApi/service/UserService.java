@@ -18,7 +18,7 @@ public class UserService {
 	private IUserRepository userRepository;
 	
 	public UserEntity getUserByUserLastName(String userLastName) {
-		UserEntity userEntity=userRepository.getByUserLastName(userLastName);
+		UserEntity userEntity=userRepository.findByUserLastName(userLastName);
 		return userEntity;
 	}
 

@@ -10,7 +10,7 @@ import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.UserEntity;
 @Qualifier("IUserRepository")
 public interface IUserRepository extends CrudRepository<UserEntity, Long>{
 
-	UserEntity getByUserLastName(String userLastName);
+	UserEntity findByUserLastName(String userLastName);
 	UserEntity findByUserId(Long userId);
 	void deleteByUserId(Long userId);
 }
