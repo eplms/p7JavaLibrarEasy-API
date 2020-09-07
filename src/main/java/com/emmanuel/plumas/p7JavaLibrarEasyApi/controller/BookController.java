@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.BookEntity;
@@ -41,12 +42,12 @@ public class BookController {
 	}
 	
 	@PostMapping(value="book/create")
-	public void createBook(BookEntity bookEntity) {
+	public void createBook(@RequestBody BookEntity bookEntity) {
 		bookService.createBook(bookEntity);
 	}
 	
 	@PostMapping(value="book/update")
-	public void upDateBook(BookEntity bookEntity) {
+	public void upDateBook(@RequestBody BookEntity bookEntity) {
 		bookEntity=bookService.upDateBook(bookEntity);
 	}
 	
