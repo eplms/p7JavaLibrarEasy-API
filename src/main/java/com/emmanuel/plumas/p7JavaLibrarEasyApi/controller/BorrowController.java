@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.BorrowEntity;
@@ -43,12 +44,12 @@ public class BorrowController {
 	}
 	
 	@PostMapping(value="borrow/create")
-	public void createBorrow(BorrowEntity borrowEntity) {
+	public void createBorrow(@RequestBody BorrowEntity borrowEntity) {
 		borrowService.createBorrow(borrowEntity);
 	}
 	
 	@PostMapping(value="borrow/update")
-	public void updateBorrow(BorrowEntity borrowEntity) {
+	public void updateBorrow(@RequestBody BorrowEntity borrowEntity) {
 		borrowEntity=borrowService.upDateBorrow(borrowEntity);
 	}
 	
