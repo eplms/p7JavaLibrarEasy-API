@@ -33,8 +33,12 @@ public class BorrowEntity implements Serializable{
 	@JoinColumn(name="user_id")
 	private UserEntity userEntity;
 
-	public BorrowEntity(Long borrowId, Date startDate, Date endDate, Boolean isExtended, Boolean isReturned,CopyEntity copyEntity,
-			UserEntity userEntity) {
+	public BorrowEntity() {
+		super();
+	}
+
+	public BorrowEntity(Long borrowId, Date startDate, Date endDate, Boolean isExtended, Boolean isReturned,
+			CopyEntity copyEntity, UserEntity userEntity) {
 		super();
 		this.borrowId = borrowId;
 		this.startDate = startDate;
@@ -43,10 +47,6 @@ public class BorrowEntity implements Serializable{
 		this.isReturned = isReturned;
 		this.copyEntity = copyEntity;
 		this.userEntity = userEntity;
-	}
-
-	public BorrowEntity() {
-		super();
 	}
 
 	public Long getBorrowId() {
@@ -80,7 +80,7 @@ public class BorrowEntity implements Serializable{
 	public void setIsExtended(Boolean isExtended) {
 		this.isExtended = isExtended;
 	}
-	
+
 	public Boolean getIsReturned() {
 		return isReturned;
 	}
@@ -88,8 +88,7 @@ public class BorrowEntity implements Serializable{
 	public void setIsReturned(Boolean isReturned) {
 		this.isReturned = isReturned;
 	}
-	
-	
+
 	public CopyEntity getCopyEntity() {
 		return copyEntity;
 	}
@@ -109,12 +108,7 @@ public class BorrowEntity implements Serializable{
 	@Override
 	public String toString() {
 		return "BorrowEntity [borrowId=" + borrowId + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", isExtended=" + isExtended + ", isReturned=" + isReturned + ",copyEntity=" + copyEntity + ", userEntity=" + userEntity + "]";
+				+ ", isExtended=" + isExtended + ", isReturned=" + isReturned + ", copyEntity=" + copyEntity
+				+ ", userEntity=" + userEntity + "]";
 	}
-
-	
-	
-	
-	
-	
 }
