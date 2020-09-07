@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.AuthorEntity;
@@ -26,7 +27,7 @@ public class AuthorController {
 	}
 	
 	@PostMapping(value="authors/create")
-	public void createAuthor(AuthorEntity authorEntity) {
+	public void createAuthor(@RequestBody AuthorEntity authorEntity) {
 		authorService.createAuthor(authorEntity);
 	}
 	
@@ -36,7 +37,7 @@ public class AuthorController {
 	}
 	
 	@PostMapping(value="authors/update")
-	public void updateAuthor(AuthorEntity authorEntity) {
+	public void updateAuthor(@RequestBody AuthorEntity authorEntity) {
 		authorEntity=authorService.upDateAuthor(authorEntity);
 	}
 	
