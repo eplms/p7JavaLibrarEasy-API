@@ -2,6 +2,8 @@ package com.emmanuel.plumas.p7JavaLibrarEasyApi.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -10,6 +12,7 @@ import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.UserEntity;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.repository.IUserRepository;
 
 @Service
+@Transactional
 @Qualifier("UserService")
 public class UserService {
 	
