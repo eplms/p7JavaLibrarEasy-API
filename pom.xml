@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.emmanuel.plumas</groupId>
-	<artifactId>p7JavaLibrarEasy</artifactId>
+	<artifactId>p7JavaLibrarEasyApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>p7JavaLibrarEasy</name>
 	<description>Projet DA JAVA P7 OC API</description>
