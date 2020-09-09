@@ -9,15 +9,16 @@ Application de gestion de bibliothèque
 * PostgreSQL  
 * Maven
 * Spring Boot
+* Spring Security
 * Spring Data Jpa
 * Spring MVC
-* Feign
+* OpenFeign
 * Bootstrap  
 
 Optimisé pour TOMCAT 9.0
 
-# CLONAGE DU PROJET
-Pour cloner le projet : 
+# CLONAGE DES COMPOSANTS DU PROJET
+Pour cloner les composants du projet : 
 * https://github.com/eplms/p7JavaLibrarEasy-API.git
 * https://github.com/eplms/p7JavaLibrarEasy-AppliWeb.git
 * https://github.com/eplms/p7JavaLibrarEasy-Batch.git
@@ -25,17 +26,27 @@ Pour cloner le projet :
 # DEPLOIEMENT
 ##### BDD (postgresql)
 1- Télécharger PostgreSQL  
-2- Executer les scripts sql (dossier p7JavaLibrarEasyApi/src/main/ressources/doc)  
+2- Executer les scripts sql (dossier p7JavaLibrarEasy-Api/src/main/ressources/doc)  
 
 ##### paramètres de connection à la Base de Données
-Le user et le mot de passe de connection à la base de données par défaut sont renseignés dans le fichier persistence.xml  
+Le user et le mot de passe de connection à la base de données par défaut sont renseignés dans le fichier application.properties  
 Pour les modifier, le chemin d'accès au fichier dans le projet est :  
-		p6JavaMono/src/main/resources/META-INF/persistence.xml
+		p7JavaLibraEasy-API/src/main/resources/application.properties
 
-##### Lancement	
+##### Lancement de l'API	
 1- Récupérer le fichier jar : dans le repository qui accueille le clone, saisir  la commande mvn install  
-2- saisir la commande :    java -jar  
+2- saisir la commande :    java -jar p7JavaLibrarEasyApi-0.0.1-SNAPSHOT.jar 
+l'API utilise le port 9001
+
+##### Lancement de l'appliweb
+1- Récupérer le fichier jar : dans le repository qui accueille le clone, saisir  la commande mvn install  
+2- Dans le dossoer target, saisir la commande :    java -jar  p7JavaLibrarEasyWEB-0.0.1-SNAPSHOT.jar
 3- url de la page d'accueil :http://localhost:8080/
+
+##### Lancement du Batch
+1- Récupérer le fichier jar : dans le repository qui accueille le clone, saisir  la commande mvn install  
+2- saisir la commande :    java -jar  p7JavaLibrarEasyBatch-0.0.1-SNAPSHOT.jar
+Le batch à une fréquence de lancement de 24H00 à partir du lancement de celui-ci.
 
 # VERSION
 1.0
