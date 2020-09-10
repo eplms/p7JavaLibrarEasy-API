@@ -20,7 +20,6 @@ public class CopyController {
 		@Qualifier("CopyService")
 		private CopyService copyService;
 		
-		
 		@GetMapping(value="copies")
 		public List<CopyEntity> getAllCopies(){
 			List<CopyEntity> copyEntities=copyService.getAllCopyEntities();

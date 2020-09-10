@@ -19,8 +19,6 @@ public class AuthorEntity implements Serializable{
 	private String authorLastName;
 	private String authorFirstName;
 	
-	
-	
 	public Long getAuthorId() {
 		return authorId;
 	}
@@ -40,8 +38,6 @@ public class AuthorEntity implements Serializable{
 		this.authorFirstName = authorFirstName;
 	}
 	
-	
-	
 	public AuthorEntity() {
 		super();
 	}
@@ -56,7 +52,5 @@ public class AuthorEntity implements Serializable{
 		return "AuthorEntity [authorId=" + authorId + ", authorLastName=" + authorLastName + ", authorFirstName="
 				+ authorFirstName + "]";
 	}
-	
-	
 	
 }

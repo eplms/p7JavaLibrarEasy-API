@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.AuthorEntity;
 import com.emmanuel.plumas.p7JavaLibrarEasyApi.repository.IAuthorRepository;
 
-
-/* Annotation transactional rajouté car méthode de suppression dans le repo crée "manuellement" */
-
 @Service
 @Transactional
 @Qualifier("AuthorService")

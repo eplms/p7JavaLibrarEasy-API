@@ -23,6 +23,7 @@ public class CopyEntity implements Serializable{
 	@JoinColumn(name="book_id")
 	private BookEntity bookEntity;
 
+	
 	public CopyEntity(Long copyId, BookEntity bookEntity) {
 		super();
 		this.copyId = copyId;
@@ -53,8 +54,4 @@ public class CopyEntity implements Serializable{
 	public String toString() {
 		return "CopyEntity [copyId=" + copyId + ", bookEntity=" + bookEntity + "]";
 	}
-	
-	
-	
-	
 }

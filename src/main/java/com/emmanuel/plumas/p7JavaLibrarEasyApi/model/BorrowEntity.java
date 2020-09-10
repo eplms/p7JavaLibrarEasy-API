@@ -33,6 +33,7 @@ public class BorrowEntity implements Serializable{
 	@JoinColumn(name="user_id")
 	private UserEntity userEntity;
 
+	
 	public BorrowEntity() {
 		super();
 	}

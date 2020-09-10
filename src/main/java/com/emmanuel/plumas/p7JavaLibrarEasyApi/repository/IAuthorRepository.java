@@ -11,5 +11,6 @@ import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.AuthorEntity;
 public interface IAuthorRepository extends CrudRepository<AuthorEntity, Long>{
 
 	void deleteAuthorByAuthorId (Long authorId);
+	
 	AuthorEntity findByAuthorId(Long authorId);
 }

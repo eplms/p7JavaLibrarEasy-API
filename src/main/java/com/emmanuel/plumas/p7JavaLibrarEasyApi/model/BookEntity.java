@@ -27,9 +27,6 @@ public class BookEntity implements Serializable{
 		private AuthorEntity authorEntity;
 		
 		
-		
-		
-		
 		public BookEntity(Long bookId, String bookTitle, String editor, String bookType, AuthorEntity authorEntity) {
 			super();
 			this.bookId = bookId;
@@ -39,26 +36,21 @@ public class BookEntity implements Serializable{
 			this.authorEntity = authorEntity;
 		}
 
-
 		public BookEntity() {
 			super();
 		}
-
 
 		public Long getBookId() {
 			return bookId;
 		}
 
-
 		public void setBookId(Long bookId) {
 			this.bookId = bookId;
 		}
 
-
 		public String getBookTitle() {
 			return bookTitle;
 		}
-
 
 		public void setBookTitle(String bookTitle) {
 			this.bookTitle = bookTitle;
@@ -68,21 +60,17 @@ public class BookEntity implements Serializable{
 			return editor;
 		}
 
-
 		public void setEditor(String editor) {
 			this.editor = editor;
 		}
-
 
 		public String getBookType() {
 			return bookType;
 		}
 
-
 		public void setBookType(String bookType) {
 			this.bookType = bookType;
 		}
-
 
 		public AuthorEntity getAuthorEntity() {
 			return authorEntity;
@@ -92,12 +80,9 @@ public class BookEntity implements Serializable{
 			this.authorEntity = authorEntity;
 		}
 
-
 		@Override
 		public String toString() {
 			return "BookEntity [bookId=" + bookId + ", bookTitle=" + bookTitle + ", editor=" + editor + ", bookType="
 					+ bookType + ", authorEntity=" + authorEntity + "]";
-		}
-		
-		
+		}		
 }

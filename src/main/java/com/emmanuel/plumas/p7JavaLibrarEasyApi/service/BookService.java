@@ -41,10 +41,27 @@ public class BookService {
 	}
 
 	public List<BookEntityAvailable> getsBookByTitleAvalaibale(String bookTitle) {
-		/* Recherche de la liste des bookEntity pour un bookTitle */
 		List<BookEntity> bookEntities =bookRepository.findByBookTitle(bookTitle);
 		List<BookEntityAvailable> bookEntitiesAvailable= transformBookEntityToAvailable(bookEntities);
 		return bookEntitiesAvailable;
+	}
+
+	public void createBook(BookEntity bookEntity) {
+		bookRepository.save(bookEntity);	
+	}
+
+	public BookEntity upDateBook(BookEntity bookEntity) {
+		BookEntity book=getBookById(bookEntity.getBookId());
+		book.setBookTitle(bookEntity.getBookTitle());
+		book.setBookType(bookEntity.getBookType());
+		book.setEditor(bookEntity.getEditor());
+		book.setAuthorEntity(bookEntity.getAuthorEntity());
+		bookRepository.save(book);
+		return book;
+	}
+
+	public void deleteBookById(Long bookId) {
+		bookRepository.deleteByBookId(bookId);
 	}
 	
 	private List<BookEntityAvailable> transformBookEntityToAvailable(List<BookEntity> bookEntities){
@@ -61,26 +78,6 @@ public class BookService {
 			bookEntitiesAvailable.add(bookEntityAvailable);
 			}
 		return bookEntitiesAvailable;
-	}
-
-	public void createBook(BookEntity bookEntity) {
-		bookRepository.save(bookEntity);
-		
-	}
-
-	public BookEntity upDateBook(BookEntity bookEntity) {
-		BookEntity book=getBookById(bookEntity.getBookId());
-		book.setBookTitle(bookEntity.getBookTitle());
-		book.setBookType(bookEntity.getBookType());
-		book.setEditor(bookEntity.getEditor());
-		book.setAuthorEntity(bookEntity.getAuthorEntity());
-		bookRepository.save(book);
-		return book;
-	}
-
-	public void deleteBookById(Long bookId) {
-		bookRepository.deleteByBookId(bookId);
-		
 	}
 	
 }

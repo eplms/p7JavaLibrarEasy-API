@@ -91,6 +91,4 @@ public class UserEntity implements Serializable{
 				+ ", userPhoneNumber=" + userPhoneNumber + ", userEmail=" + userEmail + ", userPassword=" + userPassword
 				+ "]";
 	}
-	
-	
 }

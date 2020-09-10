@@ -15,8 +15,12 @@ import com.emmanuel.plumas.p7JavaLibrarEasyApi.model.UserEntity;
 public interface IBorrowRepository extends CrudRepository<BorrowEntity, Long>{
 
 	List<BorrowEntity> getBorrowByCopyEntity(CopyEntity copyEntity);
+	
 	List<BorrowEntity> getBorrowByUserEntity(UserEntity userEntity);
+	
 	BorrowEntity getBorrowByBorrowId(Long borrowId);
+	
 	List<BorrowEntity >getBorrowByIsReturned(Boolean isReturned);
+	
 	void deleteByBorrowId(Long borrowId);
 }

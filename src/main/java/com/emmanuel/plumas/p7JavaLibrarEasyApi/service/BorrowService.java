@@ -42,7 +42,6 @@ public class BorrowService {
 		return borrowEntities;
 	}
 
-
 	public void extendBorrowEndDate(Long borrowId) {
 		BorrowEntity borrowEntity=borrowRepository.getBorrowByBorrowId(borrowId);
 		Calendar cal=Calendar.getInstance();
@@ -51,7 +50,6 @@ public class BorrowService {
 		borrowEntity.setEndDate(cal.getTime());
 		borrowEntity.setIsExtended(true);
 		borrowRepository.save(borrowEntity);
-		/* return borrowEntity; */
 	}
 
 
