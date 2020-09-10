@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.emmanuel.plumas</groupId>
 	<artifactId>p7JavaLibrarEasyApi</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1</version>
 	<name>p7JavaLibrarEasy</name>
 	<description>Projet DA JAVA P7 OC API</description>
 
